@@ -4,6 +4,8 @@ import './App.css'
 const FULL_DURATION_SECONDS = 60 * 60
 const LANDMARK_CLEAR_MULTIPLIER = 0.8
 
+const PREDICT_STEPS = [1, 2, 3, 4, 5]
+
 function formatTime(totalSeconds: number): string {
   const clamped = Math.max(0, Math.round(totalSeconds))
   const minutes = Math.floor(clamped / 60)
@@ -45,6 +47,22 @@ function App() {
           Boss Clear
         </button>
       </div>
+      <table className="predict-table">
+        <thead>
+          <tr>
+            <th>Next n Landmark</th>
+            <th>Predict Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {PREDICT_STEPS.map((n) => (
+            <tr key={n}>
+              <td>{n}</td>
+              <td>{formatTime(remainingSeconds * LANDMARK_CLEAR_MULTIPLIER ** n)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }

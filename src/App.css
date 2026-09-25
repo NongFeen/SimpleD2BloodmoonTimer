@@ -21,6 +21,24 @@
   color: var(--text);
 }
 
+.predict-table {
+  border-collapse: collapse;
+  min-width: 280px;
+  color: var(--text);
+}
+
+.predict-table th,
+.predict-table td {
+  padding: 8px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.predict-table td:last-child {
+  font-family: var(--mono);
+  color: var(--text-h);
+}
+
 .button-row {
   display: flex;
   gap: 16px;
